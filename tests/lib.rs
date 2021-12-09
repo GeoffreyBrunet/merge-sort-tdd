@@ -14,7 +14,7 @@ mod tests {
 
     #[rstest]
     #[case(vec![1, 2, 3, 4], (vec![1, 2], vec![3, 4]))]
-    #[case(vec![5, 8, 7, 4], (vec![5, 8], vec![7, 4]))]
+    #[case(vec![5, 8, 7, 4, 6], (vec![5, 8], vec![7, 4, 6]))]
     fn it_divide_arrays(#[case] input: Vec<i32>, #[case] expected: (Vec<i32>, Vec<i32>)) {
         assert_eq!(expected, divide(input));
     }

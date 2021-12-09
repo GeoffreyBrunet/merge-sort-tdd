@@ -30,9 +30,11 @@ pub fn merge(mut slice1: Vec<i32>, mut slice2: Vec<i32>) -> Vec<i32> {
 
 pub fn divide(array: Vec<i32>) -> (Vec<i32>, Vec<i32>) {
     let mid = array.len()/2;
-    let last = *(array.last().unwrap()) as usize;
-    let slice1: Vec<i32> = array[0..mid].to_vec();
-    let slice2: Vec<i32> = array[mid..last].to_vec();
+    let last = array.len();
+    let mut slice1: Vec<i32> = vec![];
+    let mut slice2: Vec<i32> = vec![];
+    slice1.append(&mut array[0..mid].to_vec());
+    slice2.append(&mut array[mid..last].to_vec());
     (slice1, slice2)
 }
 
