@@ -1,37 +1,15 @@
 #[cfg(test)]
 mod tests {
     use merge_sort_tdd::merge;
+    use rstest::rstest;
 
-    #[test]
-    fn it_merge_two_vec_with_one_member() {
-        let slice1: Vec<i32> = vec![6];
-        let slice2: Vec<i32> = vec![2];
-        let expected: Vec<i32> = vec![2, 6];
-        assert_eq!(expected, merge(slice1, slice2));
-    }
-
-    #[test]
-    fn it_merge_two_vec_with_one_same_member() {
-        let slice1: Vec<i32> = vec![2];
-        let slice2: Vec<i32> = vec![2];
-        let expected: Vec<i32> = vec![2, 2];
-        assert_eq!(expected, merge(slice1, slice2));
-    }
-
-    #[test]
-    fn it_merge_two_vec_with_two_members() {
-        let slice1: Vec<i32> = vec![5, 8];
-        let slice2: Vec<i32> = vec![2, 6];
-        let expected: Vec<i32> = vec![2, 5, 6, 8];
-        assert_eq!(expected, merge(slice1, slice2));
-    }
-
-    #[test]
-    fn it_merge_two_vec_with_two_same_numbers() {
-        let slice1: Vec<i32> = vec![2, 5];
-        let slice2: Vec<i32> = vec![2, 5];
-        let expected: Vec<i32> = vec![2, 2, 5, 5];
-        assert_eq!(expected, merge(slice1, slice2));
+    #[rstest]
+    #[case(vec![92], vec![65], vec![65, 92])]
+    #[case(vec![2, 2], vec![2, 2], vec![2, 2, 2, 2])]
+    #[case(vec![9, 29], vec![12, 65], vec![9, 12, 29, 65])]
+    #[case(vec![2, 5], vec![2, 5], vec![2, 2, 5, 5])]
+    fn it_merge_lot_arrays(#[case] input1: Vec<i32>, #[case] input2: Vec<i32>, #[case] expected: Vec<i32>) {
+        assert_eq!(expected, merge(input1, input2));
     }
 
     /*#[test]
