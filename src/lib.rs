@@ -28,8 +28,7 @@ pub fn merge(mut slice1: Vec<i32>, mut slice2: Vec<i32>) -> Vec<i32> {
     result
 }
 
-/*pub fn sort(mut array: Vec<i32>) -> Vec<i32> {
-    println!("{:?}", array);
+pub fn sort(mut array: Vec<i32>) -> Vec<i32> {
     if array.len() >= 2 {
         let (slice1, slice2): (Vec<i32>, Vec<i32>) = array
             .clone()
@@ -40,4 +39,4 @@ pub fn merge(mut slice1: Vec<i32>, mut slice2: Vec<i32>) -> Vec<i32> {
         println!("Slice 1: {:?}, Slice 2: {:?}", slice1, slice2);
     }
     array
-}*/
+}
