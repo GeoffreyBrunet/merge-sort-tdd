@@ -11,6 +11,14 @@ mod tests {
     }
 
     #[test]
+    fn it_merge_two_vec_with_one_same_member() {
+        let slice1: Vec<i32> = vec![2];
+        let slice2: Vec<i32> = vec![2];
+        let expected: Vec<i32> = vec![2, 2];
+        assert_eq!(expected, merge(slice1, slice2));
+    }
+
+    #[test]
     fn it_merge_two_vec_with_two_members() {
         let slice1: Vec<i32> = vec![5, 8];
         let slice2: Vec<i32> = vec![2, 6];
