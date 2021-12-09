@@ -3,15 +3,15 @@ mod tests {
     use merge_sort_tdd::merge;
 
     #[test]
-    fn it_merge_two_vec() {
-        let slice1: Vec<i32> = vec![2, 5];
-        let slice2: Vec<i32> = vec![6, 7];
-        let expected: Vec<i32> = vec![2, 5, 6, 7];
+    fn it_merge_two_vec_with_one_member() {
+        let slice1: Vec<i32> = vec![6];
+        let slice2: Vec<i32> = vec![2];
+        let expected: Vec<i32> = vec![2, 6];
         assert_eq!(expected, merge(slice1, slice2));
     }
 
     #[test]
-    fn it_merge_two_vec_in_different_order() {
+    fn it_merge_two_vec_with_two_members() {
         let slice1: Vec<i32> = vec![5, 8];
         let slice2: Vec<i32> = vec![2, 6];
         let expected: Vec<i32> = vec![2, 5, 6, 8];
@@ -19,7 +19,7 @@ mod tests {
     }
 
     #[test]
-    fn it_merge_two_vec_with_same_numbers() {
+    fn it_merge_two_vec_with_two_same_numbers() {
         let slice1: Vec<i32> = vec![2, 5];
         let slice2: Vec<i32> = vec![2, 5];
         let expected: Vec<i32> = vec![2, 2, 5, 5];
