@@ -28,15 +28,14 @@ pub fn merge(mut slice1: Vec<i32>, mut slice2: Vec<i32>) -> Vec<i32> {
     result
 }
 
-pub fn sort(mut array: Vec<i32>) -> Vec<i32> {
-    if array.len() >= 2 {
-        let (slice1, slice2): (Vec<i32>, Vec<i32>) = array
-            .clone()
-            .into_iter()
-            .partition(|x| x % 2 ==0);
-        array[0] = slice1[0];
-        array[1] = slice2[0];
-        println!("Slice 1: {:?}, Slice 2: {:?}", slice1, slice2);
-    }
-    array
+pub fn divide(array: Vec<i32>) -> (Vec<i32>, Vec<i32>) {
+    let mid = array.len()/2;
+    let last = *(array.last().unwrap()) as usize;
+    let slice1: Vec<i32> = array[0..mid].to_vec();
+    let slice2: Vec<i32> = array[mid..last].to_vec();
+    (slice1, slice2)
+}
+
+pub fn sort() -> Vec<i32>  {
+    vec![]
 }
