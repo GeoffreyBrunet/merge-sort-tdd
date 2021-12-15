@@ -1,12 +1,12 @@
 #[cfg(test)]
 mod tests {
-    use merge_sort_tdd::{merge, divide};
+    use merge_sort_tdd::{merge, divide, sort, merge_sort};
     use rstest::rstest;
 
     #[rstest]
     #[case(vec![92], vec![65], vec![65, 92])]
     #[case(vec![2, 2], vec![2, 2], vec![2, 2, 2, 2])]
-    #[case(vec![9, 29], vec![12, 65], vec![9, 12, 29, 65])]
+    #[case(vec![12, 65], vec![9, 29], vec![9, 12, 29, 65])]
     #[case(vec![2, 5], vec![2, 5], vec![2, 2, 5, 5])]
     fn it_merge_lot_arrays(#[case] input1: Vec<i32>, #[case] input2: Vec<i32>, #[case] expected: Vec<i32>) {
         assert_eq!(expected, merge(input1, input2));
@@ -19,45 +19,24 @@ mod tests {
         assert_eq!(expected, divide(input));
     }
 
-    /*#[test]
-    fn it_sort_empty() {
-        let v: Vec<i32> = vec![];
-        let expected: Vec<i32> = vec![];
-        assert_eq!(expected, sort(v));
+    #[rstest]
+    #[case(vec![], vec![])]
+    #[case(vec![12], vec![12])]
+    #[case(vec![9, 12], vec![9, 12])]
+    #[case(vec![12, 9], vec![9, 12])]
+    fn it_sort_different_items(#[case] input: Vec<i32>, #[case] expected: Vec<i32>) {
+        assert_eq!(expected, sort(input));
     }
 
-    #[test]
-    fn it_sort_one_item() {
-        let v: Vec<i32> = vec![1];
-        let expected: Vec<i32> = vec![1];
-        assert_eq!(expected, sort(v));
+    #[rstest]
+    #[case(vec![], vec![])]
+    #[case(vec![4], vec![4])]
+    #[case(vec![8, 7], vec![7, 8])]
+    #[case(vec![8, 7, 4], vec![4, 7, 8])]
+    #[case(vec![5, 8, 7, 4], vec![4, 5, 7, 8])]
+    #[case(vec![5, 8, 7, 4, 6], vec![4, 5, 6, 7, 8])]
+    #[case(vec![5, 8, 7, 4, 6, 2, 3], vec![2, 3, 4, 5, 6, 7, 8])]
+    fn it_merge_sort_arrays(#[case] input: Vec<i32>, #[case] expected: Vec<i32>) {
+        assert_eq!(expected, merge_sort(input));
     }
-
-    #[test]
-    fn it_sort_two_identical_items() {
-        let v: Vec<i32> = vec![2, 5];
-        let expected: Vec<i32> = vec![2, 5];
-        assert_eq!(expected, sort(v));
-    }
-
-    #[test]
-    fn it_sort_two_items() {
-        let v: Vec<i32> = vec![5, 2];
-        let expected: Vec<i32> = vec![2, 5];
-        assert_eq!(expected, sort(v));
-    }
-
-    #[test]
-    fn it_sort_three_items() {
-        let v: Vec<i32> = vec![1, 5, 2];
-        let expected: Vec<i32> = vec![1, 2, 5];
-        assert_eq!(expected, merge(v));
-    }
-
-    #[test]
-    fn it_sort_three_others_items() {
-        let v: Vec<i32> = vec![5, 1, 2];
-        let expected: Vec<i32> = vec![1, 2, 5];
-        assert_eq!(expected, merge(v));
-    }*/
 }
