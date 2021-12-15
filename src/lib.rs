@@ -26,27 +26,6 @@ pub fn merge(mut slice1: Vec<i32>, mut slice2: Vec<i32>) -> Vec<i32> {
     result
 }
 
-pub fn divide(array: Vec<i32>) -> (Vec<i32>, Vec<i32>) {
-    let mid: usize = array.len()/2;
-    let last: usize = array.len();
-    let mut slice1: Vec<i32> = vec![];
-    let mut slice2: Vec<i32> = vec![];
-    slice1.append(&mut array[0..mid].to_vec());
-    slice2.append(&mut array[mid..last].to_vec());
-    (slice1, slice2)
-}
-
-pub fn sort(mut array: Vec<i32>) -> Vec<i32>  {
-    if array.len() > 1 {
-        if array[0] > array[1] {
-            let tmp: i32 = array[0];
-            array[0] = array[1];
-            array[1] = tmp;
-        }
-    }
-    array
-}
-
 pub fn merge_sort(array: Vec<i32>) -> Vec<i32> {
     if array.len() < 2 {
         array
